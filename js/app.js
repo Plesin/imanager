@@ -239,6 +239,7 @@
 			var sender = App.senderController.getSenderById(invoice.senderId),
 		    	recipient = App.recipientsController.getRecipientById(invoice.recipientId),
 		    	newItem = App.InvoiceItem.create({description: '', quantity: '0', unitPrice: '0', vat: '0',}),
+		    	//this is not finished, just some hard coded values for now
 		    	invoiceDetailView = App.InvoiceDetailView.create({
 		    		editEnabled: editEnabled,
 		    		invoice: isNewInvoice ? this.addInvoice({id: 3, number: '123', status: 'draft', orderDate: '', dueDate: '', senderId: "1", recipientId: "5001", items: [newItem]}) : invoice,
