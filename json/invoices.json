@@ -1,0 +1,93 @@
+{
+    "sender": {
+        "id": "1",
+        "name": "John Travolta",
+        "address": "Park Lane 106, New York",
+        "bankName": "Ekoagrobnka",
+        "accountNumber": "12312313-123"
+    },
+    "recipients": [
+        {
+            "id": "5001",
+            "name": "Adam Bernau",
+            "address": "Praha, Vorackova 8"
+        },
+        {
+            "id": "5002",
+            "name": "Letajici Cestmir",
+            "address": "Praha, Voblackova 8"
+        }
+    ],
+    "invoices": [
+        {
+            "id": "123",
+            "number": "12345",
+            "status": "published",
+            "orderDate": "10/10/2012",
+            "dueDate": "21/10/2012",
+            "senderId": "1",
+            "recipientId": "5001",
+            "items": [
+                {
+                    "description": "Engeneering (h)",
+                    "quantity": "10",
+                    "unitPrice": "10",
+                    "vat": "10"
+                },
+                {
+                    "description": "Coffee",
+                    "quantity": "10",
+                    "unitPrice": "10",
+                    "vat": "0"
+                }
+            ]
+        },
+        {
+            "id": "124",
+            "number": "12346",
+            "status": "canceled",
+            "orderDate": "10/10/2012",
+            "dueDate": "21/10/2012",
+            "senderId": "1",
+            "recipientId": "5002",
+            "items": [
+                {
+                    "description": "Engeneering (h)",
+                    "quantity": "12",
+                    "unitPrice": "300",
+                    "vat": "20"
+                },
+                {
+                    "description": "Coffee",
+                    "quantity": "10",
+                    "unitPrice": "15",
+                    "vat": "0"
+                }
+            ]
+        },
+        {
+            "id": "125",
+            "number": "12347",
+            "status": "draft",
+            "orderDate": "10/10/2012",
+            "dueDate": "21/10/2012",
+            "senderId": "1",
+            "recipientId": "5002",
+            "items": [
+                {
+                    "description": "Engeneering (h)",
+                    "quantity": "12",
+                    "unitPrice": "300",
+                    "vat": "20"
+                },
+                {
+                    "description": "Coffee",
+                    "quantity": "10",
+                    "unitPrice": "15",
+                    "vat": "0"
+                }
+            ]
+        }
+
+    ]
+}
