@@ -15,6 +15,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="stylesheet" href="css/bootstrap.min.css?v=2">
   <link rel="stylesheet" href="css/bootstrap-responsive.min.css?v=2">
+  <link rel="stylesheet" href="css/smoothness/jquery-ui-1.8.22.custom.css?v=2">
   <link rel="stylesheet" href="css/style.css?v=2">
 
   <!--[if lt IE 9]>
@@ -90,11 +91,11 @@
       <div class="row-fluid"><a href="#" class="btn backToListButton" {{action "home" }}>Back to list</a></div>
       <div class="row-fluid">
         <div class="senderDetail span6">
-          <div>{{#if editEnabled}}  {{view Ember.TextField valueBinding="invoice.number"}} {{else}} {{invoice.number}} {{/if}}</div>
-          <div>{{invoice.orderDate}}</div>
-          <div>{{invoice.dueDate}}</div>
-          <div>{{#if editEnabled}}  {{view Ember.TextField valueBinding="sender.name"}} {{else}} {{sender.name}} {{/if}}</div>
-          <div>{{#if editEnabled}}  {{view Ember.TextField valueBinding="sender.address"}} {{else}} {{sender.address}} {{/if}}</div>
+          <div>{{#if editEnabled}}  {{view App.TextField valueBinding="invoice.number"}} {{else}} {{invoice.number}} {{/if}}</div>
+          <div>{{#if editEnabled}} {{view App.TextField valueBinding="invoice.orderDate" class="datepicker"}} {{else}} {{invoice.orderDate}} {{/if}}</div>
+          <div>{{#if editEnabled}} {{view App.TextField valueBinding="invoice.dueDate" class="datepicker"}} {{else}} {{invoice.dueDate}} {{/if}}</div>
+          <div>{{#if editEnabled}}  {{view App.TextField valueBinding="sender.name"}} {{else}} {{sender.name}} {{/if}}</div>
+          <div>{{#if editEnabled}}  {{view App.TextField valueBinding="sender.address"}} {{else}} {{sender.address}} {{/if}}</div>
           <div>{{sender.bankName}}</div>
           <div>{{sender.accountNumber}}</div>
         </div>
@@ -113,10 +114,10 @@
               {{#if editEnabled}}
                 {{#each invoice.items}}
                   <tr>
-                    <td>{{view Ember.TextField valueBinding="description" placeholder="Description"}}</td>
-                    <td>{{view Ember.TextField valueBinding="quantity"}}</td>
-                    <td>{{view Ember.TextField valueBinding="unitPrice"}}</td>
-                    <td>{{view Ember.TextField valueBinding="vat"}}</td>
+                    <td>{{view App.TextField valueBinding="description" placeholder="Description"}}</td>
+                    <td>{{view App.TextField valueBinding="quantity"}}</td>
+                    <td>{{view App.TextField valueBinding="unitPrice"}}</td>
+                    <td>{{view App.TextField valueBinding="vat"}}</td>
                     <td>{{vatPrice}}</td>
                     <td>{{totalPrice}}</td>
                     </tr>
@@ -156,6 +157,7 @@
   <!-- The missing protocol means that it will match the current protocol, either http or https. If running locally, we use the local jQuery. -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+  <script src="js/libs/jquery-ui-1.8.22.custom.min.js"></script>
   <script src="js/libs/pubsub.js"></script>
   <script src="js/libs/ember-0.9.8.1.js"></script>
   <script src="js/libs/bootstrap.min.js"></script>

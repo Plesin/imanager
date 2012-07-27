@@ -307,6 +307,16 @@
 		},
 		home: function() {
 			App.applicationController.showHomePage();
+		},
+		didInsertElement: function() {
+			$('.datepicker' ).datepicker({
+				showOn: 'both',
+				buttonImage: 'img/calendar.png',
+				dateFormat: 'dd/mm/yy',
+				onSelect: function() {
+					$(this).trigger('change');
+				}
+			});
 		}
 	});
 
@@ -317,6 +327,10 @@
 	       newInvoiceButton: App.NewInvoiceButtonView.create(),
 	       invoicesList: App.InvoicesListView.create()
 	   })
+	});
+
+	App.TextField = Ember.TextField.extend({
+	    attributeBindings: ['id', 'class', 'disabled']
 	});
 
 	/***--- HANDELBARS HELPERS --***/
