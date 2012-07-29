@@ -59,3 +59,11 @@ table tr.no-boder, table tr.no-boder:hover, table tr.no-boder td, table tr.no-bo
 .ui-datepicker-trigger {
     margin: -10px 0 0 3px;
 }
+
+.deleteInvoiceItem {
+    width: 16px;
+    height: 16px;
+    background-image: url("../img/glyphicons-halflings.png");
+    background-repeat: no-repeat;
+    background-position: -47px -95px;
+}

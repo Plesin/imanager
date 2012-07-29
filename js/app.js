@@ -308,7 +308,25 @@
 		home: function() {
 			App.applicationController.showHomePage();
 		},
+		click: function(event) {
+			var elem = $(event.target);
+			if (elem.is('.deleteInvoiceItem')) {
+				var index = $('.deleteInvoiceItem').index(event.target),
+    				items = this.getPath('invoice.items'), item = items.objectAt(index);
+    			items.removeObject(item);
+    			elem.tooltip('hide');
+			}
+		},
+		change: function(event) {
+			var elem = $(event.target);
+			if (elem.is('#status')) {
+				this.invoice.set('status', elem.val());
+			}
+		},
 		didInsertElement: function() {
+			var status = this.invoice.get('status'),
+				that = this;
+
 			$('.datepicker' ).datepicker({
 				showOn: 'both',
 				buttonImage: 'img/calendar.png',
@@ -317,6 +335,9 @@
 					$(this).trigger('change');
 				}
 			});
+
+			$("#status option[value='" + status + "']").prop('selected', true);
+    		$('.deleteInvoiceItem').tooltip({ title: 'delete item', placement: 'top', delay: { show: 100, hide: 500 }});
 		}
 	});
 

@@ -100,6 +100,14 @@
           <div>{{sender.accountNumber}}</div>
         </div>
         <div class="recipientDetail span6">
+          {{#if editEnabled}}
+            <select id="status">
+              <option value="draft">Draft</option>
+              <option value="published">Published</option>
+              <option value="canceled">Canceled</option>
+            </select>
+          {{/if}}
+          <div>{{invoice.status}}</div>
           <div>{{recipient.name}}</div>
           <div>{{recipient.address}}</div>
         </div>
@@ -108,7 +116,7 @@
         <div class="span12">
           <table class="table table-striped">
             <thead>
-              <tr><th>Description</th><th>Quantity</th><th>Unit price</th><th>Vat precentage</th><th>Vat price</th><th>Total price (with VAT)</th></tr>
+              <tr><th>Description</th><th>Quantity</th><th>Unit price</th><th>Vat precentage</th><th>Vat price</th><th>Total price (with VAT)</th><th></th></tr>
             </thead>
             <tbody>
               {{#if editEnabled}}
@@ -120,6 +128,7 @@
                     <td>{{view App.TextField valueBinding="vat"}}</td>
                     <td>{{vatPrice}}</td>
                     <td>{{totalPrice}}</td>
+                    <td><div class="deleteInvoiceItem"></div></td>
                     </tr>
                 {{/each}}
               {{else}}
@@ -131,14 +140,15 @@
                     <td>{{vat}}</td>
                     <td>{{vatPrice}}</td>
                     <td>{{totalPrice}}</td>
+                    <td></td>
                   </tr>
                 {{/each}}
               {{/if}}
               {{#if editEnabled}}
-                <tr class="no-boder"><td><a class="btn" {{action "newInvoiceItem" context="invoice"}}>New line</a></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr class="no-boder"><td><a class="btn" {{action "newInvoiceItem" context="invoice"}}>New line</a></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
               {{/if}}
-              <tr class="no-boder"><td></td><td></td><td></td><td></td><td><strong>Total VAT</strong></td><td><strong>{{invoice.totalVatPrice}} CZK</strong></td></tr>
-              <tr class="no-boder"><td></td><td></td><td></td><td></td><td><strong>Total price</strong></td><td><strong>{{invoice.totalPrice}} CZK</strong></td></tr>
+              <tr class="no-boder"><td></td><td></td><td></td><td></td><td><strong>Total VAT</strong></td><td><strong>{{invoice.totalVatPrice}} CZK</strong></td><td></td></tr>
+              <tr class="no-boder"><td></td><td></td><td></td><td></td><td><strong>Total price</strong></td><td><strong>{{invoice.totalPrice}} CZK</strong></td><td></td></tr>
             </tbody>
           </table>
         </div>
